@@ -1,0 +1,19 @@
+{
+  "name": "formant-take-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/useafterfree/formant-take-home.git"
+  },
+  "author": "nathan.d.trujillo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/useafterfree/formant-take-home/issues"
+  },
+  "homepage": "https://github.com/useafterfree/formant-take-home#readme"
+}
