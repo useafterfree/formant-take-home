@@ -1,4 +1,4 @@
-import { PageProps } from 'app/PageProps';
+import { PageProps } from '@/ui/PageProps';
 import { use } from 'react';
 
 export default function Layout({ children,  params }: PageProps) {

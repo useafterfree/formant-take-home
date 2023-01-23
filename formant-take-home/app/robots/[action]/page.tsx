@@ -3,7 +3,7 @@ import { use, useEffect, useState } from 'react';
 
 import { SkeletonCard } from '@/ui/SkeletonCard';
 import { RobotCard } from '@/ui/RobotCard';
-import { PageProps } from 'app/PageProps';
+import { PageProps } from '@/ui/PageProps';
 
 import { z } from "zod";
 import { RobotSchema } from 'models/RobotSchema';
