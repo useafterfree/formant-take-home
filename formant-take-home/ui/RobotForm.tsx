@@ -1,7 +1,12 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { RobotSchema } from 'models/RobotSchema';
+import Router from 'next/router';
 type FormSchemaType = z.infer<typeof RobotSchema>;
 const uiSchema = RobotSchema.omit({ id: true });
 
@@ -14,6 +19,7 @@ const createRobot = async (formData: z.infer<typeof uiSchema>): Promise<JSONResp
   try {
     const response = await fetch('/api/robots', { method: 'POST', body: JSON.stringify(formData) });
     const data = await response.json();
+    Router.push('/robots/list');
     return { data };
   } catch (e: any) {
     return { errors: e };
@@ -22,7 +28,7 @@ const createRobot = async (formData: z.infer<typeof uiSchema>): Promise<JSONResp
 };
 
 export default function RobotForm() {
-  const {
+    const {
     register,
     watch,
     handleSubmit,
@@ -30,6 +36,7 @@ export default function RobotForm() {
   } = useForm<FormSchemaType>({
     resolver: zodResolver(uiSchema), // we generate id on the api
   });
+  const router = useRouter();
 
   watch();
 
@@ -40,6 +47,7 @@ export default function RobotForm() {
           uiSchema.parse(formData);
           const { data } = await createRobot(formData);
           resolve(data);
+          router.push('/robots/list');
         } catch (e) {
           console.log(e);
         }
